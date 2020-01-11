@@ -149,7 +149,7 @@ void SemiWebSocket::send_message(String type, String data) {
 
 	HTTPClient http;
 	http.setTimeout(2000);
-	http.begin("***REMOVED***", 80, "/ws");
+	http.begin(TARGET_HOST, 80, "/ws");
 	http.addHeader("Content-Type", "text/plain");
 
 	String body = _ws_id + " " + type + " " + data;
