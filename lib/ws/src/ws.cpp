@@ -31,7 +31,7 @@ void handle_request() {
 
 	String type = "";
 	String data = "";
-	for (int i = 0 ; i < arg.length(); i++) {
+	for (unsigned int i = 0 ; i < arg.length(); i++) {
 		if (arg.c_str()[i] == ' ') {
 			spaces++;
 			continue;
@@ -48,7 +48,7 @@ void handle_request() {
 }
 
 char* SemiWebSocket::get_type(char* payload) {
-	int i;
+	unsigned int i;
 	char* type = (char*) malloc(sizeof(char) * 500);
 	for (i = 0; i < strlen(payload); i++) {
 		if (payload[i] == ' ') {
@@ -61,7 +61,7 @@ char* SemiWebSocket::get_type(char* payload) {
 }
 
 char* SemiWebSocket::get_data(char* payload) {
-	int i;
+	unsigned int i;
 	int j = 0;
 	bool found_space = false;
 	char* data = (char*) malloc(sizeof(char) * 500);
@@ -119,7 +119,7 @@ void SemiWebSocket::connect()  {
 			LOGF("Got id %s\n", _ws_id.c_str());
 			_handler("connected", "", "");
 		} else  {
-			LOGF("Got err code %d and msg\n", httpCode, http.getString().c_str());
+			LOGF("Got err code %d and msg %s\n", httpCode, http.getString().c_str());
 			close();
 		}
 	} else {
@@ -156,7 +156,7 @@ void SemiWebSocket::send_message(String type, String data) {
 	int httpCode = http.POST(body);
 	if(httpCode > 0) {
 		if(httpCode != 200) {
-			LOGF("Got err code %d and msg\n", httpCode, http.getString().c_str());
+			LOGF("Got err code %d and msg %s\n", httpCode, http.getString().c_str());
 			close();
 		}
 	} else {
