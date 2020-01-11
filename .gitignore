@@ -2,5 +2,6 @@
 
 .vscode
 secrets.h
+ws_secrets.h
 ota_secrets.h
 net_secrets.h
