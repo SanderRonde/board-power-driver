@@ -123,7 +123,7 @@ void SemiWebSocket::connect()  {
 			close();
 		}
 	} else {
-		LOGF("Got sending error %s\n", http.errorToString(httpCode).c_str());
+		LOGF("Connect got sending error %s\n", http.errorToString(httpCode).c_str());
 		close();
 	}
 	_last_refresh = millis();
@@ -160,7 +160,7 @@ void SemiWebSocket::send_message(String type, String data) {
 			close();
 		}
 	} else {
-		LOGF("Got sending error %s\n", http.errorToString(httpCode).c_str());
+		LOGF("SendMessage got sending error %s\n", http.errorToString(httpCode).c_str());
 		close();
 	}
 	http.end();
