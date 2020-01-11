@@ -11,4 +11,6 @@ namespace Telnet {
 	extern WiFiClient client;
 
 	void setup(const char* name);
+
+	void loop();
 }

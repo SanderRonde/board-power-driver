@@ -31,4 +31,5 @@ void setup() {
 void loop() {
 	OTA::loop();
 	Msg::loop();
+	Telnet::loop();
 }
