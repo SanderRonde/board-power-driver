@@ -4,7 +4,7 @@ This repo contains the code for an arduino board driving a power switch.
 
 This project uses [PlatformIO](https://platformio.org/) for simple uploading and interfacing with the board itself.
 
-This project is part of the larger [home-automation](https://github.com/SanderRonde/home-automation) project, where this is part of the controlling touch screen module.
+This project is part of the larger [home-automation](https://github.com/SanderRonde/home-automation) project, where this is part of the keyval module.
 
 ## License
 
