@@ -1,6 +1,6 @@
 # Arduino board power driver
 
-This repo contains the code for an arduino board driving a power switch.
+This repo contains the code for an arduino board driving a power switch. It works by creating a (sort of) websocket connection with a server and listening for changes in a certain key (identifying this board). If something changes, a pin's output value is changed. This pin is hooked up to a relay, which will pass through regular 230V power to the to-power device.
 
 This project uses [PlatformIO](https://platformio.org/) for simple uploading and interfacing with the board itself.
 
