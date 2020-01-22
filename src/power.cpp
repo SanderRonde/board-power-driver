@@ -19,6 +19,6 @@ namespace Power {
 		}
 		pinMode(POWER_PIN, OUTPUT);
 
-		set(INVERT ? !DEFAULT_VALUE : DEFAULT_VALUE);
+		set(DEFAULT_VALUE);
 	}
 }
