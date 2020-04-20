@@ -50,7 +50,7 @@ namespace Net {
 			delay(1000);
 		}
 
-		WiFi.mode(WIFI_AP_STA);
+		WiFi.mode(WIFI_STA);
 		WiFiMulti.addAP(WIFI_SSID, WIFI_PW);
 
 		_setup = true;
