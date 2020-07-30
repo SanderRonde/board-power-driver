@@ -7,7 +7,8 @@
 #include <ota.h>
 #include <net.h>
 
-void setup() {
+void setup()
+{
 	Serial.begin(115200);
 	Serial.println("Booting");
 
@@ -28,7 +29,8 @@ void setup() {
 	LOGN("Booted");
 }
 
-void loop() {
+void loop()
+{
 	OTA::loop();
 	Msg::loop();
 	Telnet::loop();

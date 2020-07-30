@@ -3,6 +3,8 @@
 #include <ws.h>
 
 namespace Msg {
+	extern int value;
+
 	void setup();
 
 	void loop();

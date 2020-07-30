@@ -1,24 +1,31 @@
 #include <config.h>
 #include <telnet.h>
+#include <msg.h>
+
+#define POLL_DELAY_S 10
 
 namespace Power {
 	void set(int value) {
 		LOGF("Setting to %d\n", value);
-		if (SWITCH_LED) {
-			digitalWrite(LED_BUILTIN, value ? LOW : HIGH);
-		}
-		if (INVERT) {
+		if (digitalRead(MODE_PIN) == 1) {
 			value = !value;
 		}
 		digitalWrite(POWER_PIN, value ? HIGH : LOW);
 	}
 
 	void setup() {
-		if (SWITCH_LED) {
-			pinMode(LED_BUILTIN, OUTPUT);
-		}
 		pinMode(POWER_PIN, OUTPUT);
+		pinMode(MODE_PIN, INPUT);
 
-		set(DEFAULT_VALUE);
+		set(0);
+	}
+
+	unsigned long last_poll = millis();
+	void loop() {
+		if (millis() < last_poll + (POLL_DELAY_S * 1000)) {
+			last_poll = millis();
+
+			set(Msg::value);
+		}
 	}
 }

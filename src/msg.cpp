@@ -6,7 +6,7 @@
 namespace Msg {
 	void ws_event(String event, String type, String data);
 
-	int value = INVERT ? !DEFAULT_VALUE : DEFAULT_VALUE;
+	int value = 0;
 	SemiWebSocket ws = SemiWebSocket(ws_event, 5000, 60 * 1000);
 
 	void on_value(int new_value) {
