@@ -7,10 +7,11 @@
 #define LOGLN LOGN
 #define LOGF Telnet::client.printf
 
-namespace Telnet {
+namespace Telnet
+{
 	extern WiFiClient client;
 
-	void setup(const char* name);
+	void setup(const char *name);
 
 	void loop();
-}
+} // namespace Telnet

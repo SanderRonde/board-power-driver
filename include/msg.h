@@ -2,10 +2,11 @@
 #include <power.h>
 #include <ws.h>
 
-namespace Msg {
+namespace Msg
+{
 	extern int value;
 
 	void setup();
 
 	void loop();
-}
+} // namespace Msg

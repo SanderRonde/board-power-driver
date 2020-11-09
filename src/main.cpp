@@ -23,6 +23,7 @@ void setup()
 
 	// Setup the rest
 	Net::setup();
+	delay(1000 * 5);
 	Msg::setup();
 
 	// Done

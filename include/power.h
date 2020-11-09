@@ -1,7 +1,8 @@
 #pragma once
 
-namespace Power {
+namespace Power
+{
 	void setup();
 
 	void set(int value);
-}
+} // namespace Power

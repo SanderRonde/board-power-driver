@@ -3,33 +3,35 @@
 #include <string.h>
 #include <Arduino.h>
 
-class SemiWebSocket {
-	private:
-		String _ws_id;
-		bool _connected;
-		int _refresh_interval;
-		int _ping_interval;
-		unsigned long _last_refresh;
-		unsigned long _last_ping;
-	public:
-		char* get_type(char* payload);
+class SemiWebSocket
+{
+private:
+	String _ws_id;
+	bool _connected;
+	int _refresh_interval;
+	int _ping_interval;
+	unsigned long _last_refresh;
+	unsigned long _last_ping;
 
-		char* get_data(char* payload);
+public:
+	char *get_type(char *payload);
 
-		void create_server();
+	char *get_data(char *payload);
 
-		void close();
+	void create_server();
 
-		void ping();
+	void close();
 
-		void connect();
+	void ping();
 
-		void start_server();
+	void connect();
 
-		SemiWebSocket(void(*handler)(String event, String type, String data), 
-					  int refresh_interval, int ping_interval);
+	void start_server();
 
-		void send_message(String type, String data);
+	SemiWebSocket(void (*handler)(String event, String type, String data),
+				  int refresh_interval, int ping_interval);
 
-		void loop();
+	void send_message(String type, String data);
+
+	void loop();
 };
