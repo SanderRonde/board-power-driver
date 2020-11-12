@@ -19,11 +19,9 @@ void setup()
 	OTA::setup();
 	LOGN("Booted. Waiting for possible OTAs");
 	OTA::wait_for_otas();
-	LOGN("Stopped waiting");
 
 	// Setup the rest
 	Net::setup();
-	delay(1000 * 5);
 	Msg::setup();
 
 	// Done
