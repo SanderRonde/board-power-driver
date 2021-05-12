@@ -3,6 +3,8 @@
 #include <power.h>
 #include <ws.h>
 
+#define PING_INTERVAL_MS (1000 * 60 * 60)
+
 namespace Msg
 {
 	void ws_event(String event, String type, String data);
@@ -38,16 +40,19 @@ namespace Msg
 		}
 	}
 
+	unsigned long last_ping = 0;
 	void ws_event(String event, String type, String data)
 	{
 		if (event == "closed")
 		{
 			LOGF("[WSc] Disconnected!\n");
+			last_ping = 0;
 		}
 		else if (event == "connected")
 		{
 			LOGF("[WSc] Connected\n");
 			ws.send_message("listen", KEY_NAME);
+			last_ping = millis();
 		}
 		else if (event == "message")
 		{
@@ -67,8 +72,16 @@ namespace Msg
 		ws.connect();
 	}
 
+	void ping() {
+		last_ping = millis();
+		ws.send_message("ping", "");
+	}
+
 	void loop()
 	{
 		ws.loop();
+		if (millis() > last_ping + PING_INTERVAL_MS) {
+			ping();	
+		}
 	}
 } // namespace Msg
