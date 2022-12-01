@@ -8,13 +8,13 @@ This project is part of the larger [home-automation](https://github.com/SanderRo
 
 ## PCB
 
-PCB source file (in format of [EasyEda](https://easyeda.com)) can be found at `pcb/board-easyeda.json`.
+PCB source file (in format of [EasyEda](https://easyeda.com)) can be found at `pcb/pcb-easyeda.json`.
 
 Most components speak for themselves and are listed on the PDB, notable ones:
 - it takes an ESP8266 devkit board (can be either the wide or narrower one)
 - it requires a 230V AC to 5V DC converter
 
-![PCB](./pcb//board.png)
+![PCB](./pcb/pcb.png)
 
 
 ## License
